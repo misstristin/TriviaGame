@@ -1,0 +1,47 @@
+body {
+    background-color: red;
+    background: url("../images/art-background-backlit-333850.jpg");
+    background-position: center center;
+    color: white;
+    font-family: gloria hallelujah, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+}
+.container {
+    width: 600px;   
+    min-height: 600px;
+    height: auto;
+    background-color: grey;
+    opacity: .7;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 1px solid darkred;
+}
+h1 {
+    font-size:40px;
+    font-family: permanent marker, cursive;
+    line-height: 75px;
+    color: darkred;
+}
+h2 {
+    font-size:20px;
+    line-height: 45px;
+}
+#question {
+    font-size: 25px;
+    color: darkred;
+    font-family: permanent marker, cursive;
+    margin-bottom: 15px;
+}
+hr {
+    border-color: black;
+    height:1px;
+    width: 90%;
+    margin: 20px auto;
+    background-color: white;
+}
+.rounded {
+    border-radius: 10px;
+    border: 1px solid black;
+}
