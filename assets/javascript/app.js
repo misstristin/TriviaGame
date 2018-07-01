@@ -65,22 +65,22 @@ var questions = [
     correct_img : "assets/images/Darkness.jpg"
     },
 
-    {question : "What year was season 1 released?",
-    choice_one : "1999",
-    choice_two : "2001",
-    choice_three : "2005",
-    choice_four : "2008",
-    correct_answer : "2005",
-    correct_img : "assets/images/2005.jpg"
+    {question : "Which does NOT eist in the Supernatural universe",
+    choice_one : "Vampires",
+    choice_two : "Witches",
+    choice_three : "Fairies",
+    choice_four : "Werewolves",
+    correct_answer : "Fairies",
+    correct_img : "assets/images/Fairies.jpg"
     },
 
-    {question : "What year was season 1 released?",
-    choice_one : "1999",
-    choice_two : "2001",
-    choice_three : "2005",
-    choice_four : "2008",
-    correct_answer : "2005",
-    correct_img : "assets/images/John.jpg"
+    {question : "After the previous ruler vadates, who crowns himself the King of Hell?",
+    choice_one : "Crowley",
+    choice_two : "Lucifer",
+    choice_three : "Castiel",
+    choice_four : "Chuck",
+    correct_answer : "Crowley",
+    correct_img : "assets/images/Crowley.jpg"
     },
 
     {question : "What year was season 1 released?",
@@ -201,7 +201,7 @@ $('.answerText').on('click', function(){
         $('#choice_four').attr('class', 'hideMe');
 
         $('#reveal').attr('class', 'showMe bigRedText');
-        $('#reveal').html("That's right! The correct answer is:<br>");
+        $('#reveal').html("Right on! The correct answer is:<br>");
         $('#reveal').append('<div class="answerText" id="answer">');
         $('#answer').append(questions[q]['correct_answer']);
         $('#answer').append('<br><img class="answerImg" src="'+questions[q]['correct_img']+'">');
@@ -230,6 +230,7 @@ $('.answerText').on('click', function(){
     if (questions[q] == undefined){
         clearInterval(countDownIntervalThirty);
         clearInterval(countDownIntervalFive);
+        timerThirty = 0;
 
         $('#questionHere').attr('class', 'hideMe');
         $('#choice_one').attr('class', 'hideMe');
