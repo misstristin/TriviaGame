@@ -74,7 +74,7 @@ var questions = [
     correct_img : "assets/images/Aliens.jpg"
     },
 
-    {question : "After the previous ruler vadates, who crowns himself the King of Hell?",
+    {question : "After the previous ruler vacates, who crowns himself the King of Hell?",
     choice_one : "Crowley",
     choice_two : "Lucifer",
     choice_three : "Castiel",
