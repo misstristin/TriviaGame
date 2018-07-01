@@ -68,10 +68,10 @@ var questions = [
     {question : "Which does NOT exist in the Supernatural universe",
     choice_one : "Vampires",
     choice_two : "Witches",
-    choice_three : "Fairies",
+    choice_three : "Aliens",
     choice_four : "Werewolves",
-    correct_answer : "Fairies",
-    correct_img : "assets/images/Fairies.jpg"
+    correct_answer : "Aliens",
+    correct_img : "assets/images/Aliens.jpg"
     },
 
     {question : "After the previous ruler vadates, who crowns himself the King of Hell?",
