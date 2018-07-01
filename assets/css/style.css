@@ -1,5 +1,5 @@
 body {
-    background-color: red;
+    background-color: darkred;
     background: url("../images/art-background-backlit-333850.jpg");
     background-position: center center;
     color: white;
@@ -24,12 +24,17 @@ h1 {
     line-height: 75px;
     color: darkred;
 }
-h2 {
+h2, .answerText {
     font-size:20px;
-    line-height: 45px;
+    line-height: 35px;
+    color: white;
 }
-#question {
+.answerText:hover {
+    color: lime;
+}
+.bigRedText {
     font-size: 25px;
+    line-height: 35px;
     color: darkred;
     font-family: permanent marker, cursive;
     margin-bottom: 15px;
@@ -43,5 +48,15 @@ hr {
 }
 .rounded {
     border-radius: 10px;
+    border: 1px solid black;
+}
+.hideMe {
+    display: none;
+}
+.showMe {
+    display: display;
+}
+.answerImg {
+    height: 250px;
     border: 1px solid black;
 }

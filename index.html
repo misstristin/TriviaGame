@@ -11,17 +11,23 @@
 <body>
     <div class="container">
     <h1>Supernatural Trivia Game</h1>
-    <img class="rounded" src="assets/images/SamNDean.jpg" alt="Sam and Dean Winchester">
+    <img class="rounded" id="mainImage" src="assets/images/SamNDean.jpg" alt="Sam and Dean Winchester">
     <h2>How well do you know those Winchester brothers?</h2>
+    <div class="bigRedText">00:<span id="timer"></span></div>
     <hr>
         <div>
-            <p id="question">Question Goes here</p>
-            <ul>
-                <li>Answer 1</li>
-                <li>Answer 2</li>
-                <li>Answer 3</li>
-                <li>Answer 4</li>
-            </ul>
+            <button id="start">Start the game!</button>
+            
+            <p class="bigRedText" id="questionHere"> 
+            <!-- Question goes here  -->
+            <div class="hideMe" id="reveal"></div>
+            </p>
+            <!-- answers populate here -->
+            <p class="answerText" id="choice_one"></p>
+            <p class="answerText" id="choice_two"></p>
+            <p class="answerText" id="choice_three"></p>
+            <p class="answerText" id="choice_four"></p>
+
         </div>
     </div>
     
