@@ -106,12 +106,14 @@ $('#timer').text(timerThirty);
 
 // countdown function, clear when timer = 0
 function countDownThirty(){
-   timerThirty = timerThirty - 1;
+    $('#timer').show();
+    timerThirty = timerThirty - 1;
    if (timerThirty < 10 && timerThirty >= 0){
        timerThirty = '0' + timerThirty;
    }
    if (timerThirty == -1){
     timerThirty = 0;
+    $('#timer').hide();
     clearInterval(countDownIntervalThirty);
     countDownIntervalFive = setInterval(countDownFive, 1000);
 
@@ -180,6 +182,8 @@ function countDownFive(){
     $('#choice_two').attr('class', 'showMe answerText');
     $('#choice_three').attr('class', 'showMe answerText');
     $('#choice_four').attr('class', 'showMe answerText');
+    $('#timer').show();
+
  }
 }
    
@@ -210,6 +214,7 @@ $('.answerText').on('click', function(){
 
 
     }else {
+        $('#timer').show();
         clearInterval(countDownIntervalThirty);
 
         $('#mainImage').attr('class', 'hideMe');
