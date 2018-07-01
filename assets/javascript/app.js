@@ -65,7 +65,7 @@ var questions = [
     correct_img : "assets/images/Darkness.jpg"
     },
 
-    {question : "Which does NOT eist in the Supernatural universe",
+    {question : "Which does NOT exist in the Supernatural universe",
     choice_one : "Vampires",
     choice_two : "Witches",
     choice_three : "Fairies",
