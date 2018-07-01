@@ -12,10 +12,10 @@ var questions = [
     ,
 
     {question : "What's the make and model of 'Dean's baby,' the signature Winchester car?",
-    choice_one : "'67 Impala",
-    choice_two : "'65 Mustang",
-    choice_three : "'69 Firebird",
-    choice_four : "'68 Chevelle",
+    choice_one : "'67 Chevvy Impala",
+    choice_two : "'65 Ford Mustang",
+    choice_three : "'69 Pontiac Firebird",
+    choice_four : "'68 Chevvy Chevelle",
     correct_answer : "'67 Impala",
     correct_img : "assets/images/Impala.jpg"
     },
