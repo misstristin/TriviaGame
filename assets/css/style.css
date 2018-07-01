@@ -30,7 +30,7 @@ h2, .answerText {
     color: white;
 }
 .answerText:hover {
-    color: lime;
+    color: black;
 }
 .bigRedText {
     font-size: 25px;

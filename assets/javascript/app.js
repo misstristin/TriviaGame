@@ -1,13 +1,13 @@
 
 // list of questions and answers
 var questions = [
-    {question : "What is Sam and Dean's Dad's name?",
-    choice_one : "Bobby", 
-    choice_two : "Castiel", 
-    choice_three : "John",
-    choice_four : "Gabriel",  
-    correct_answer : "John",
-    correct_img : "assets/images/John.jpg"
+    {question : "What is Sam and Dean's Mom's name?",
+    choice_one : "Ruby", 
+    choice_two : "Jo", 
+    choice_three : "Mary",
+    choice_four : "Jessica",  
+    correct_answer : "Mary",
+    correct_img : "assets/images/Mary.jpg"
     }
     ,
 
@@ -16,15 +16,17 @@ var questions = [
     choice_two : "'65 Mustang",
     choice_three : "'69 Firebird",
     choice_four : "'68 Chevelle",
-    correct_answer : "'67 Impala"
+    correct_answer : "'67 Impala",
+    correct_img : "assets/images/Impala.jpg"
     },
 
-    {question : "Who was the first Winchester to die?",
+    {question : "Who was the first Winchester to come back to life?",
     choice_one : "Dean",
     choice_two : "Sam",
     choice_three : "John",
     choice_four : "Mary",
-    correct_answer : "John"
+    correct_answer : "John",
+    correct_img : "assets/images/John.jpg"
     },
 
     {question : "Which angel is secretly a trickster?",
@@ -32,7 +34,8 @@ var questions = [
     choice_two : "Gabriel",
     choice_three : "Lucifer",
     choice_four : "Raphael",
-    correct_answer : "Gabriel"
+    correct_answer : "Gabriel",
+    correct_img : "assets/images/Gabriel.jpg"
     },
 
     {question : "How did Dean escape from Hell?",
@@ -40,7 +43,8 @@ var questions = [
     choice_two : "Castiel dragged him out of Hell",
     choice_three : "Dean proved his goodness and was saved by God",
     choice_four : "John traded his soul to save Dean from eternal damnation",
-    correct_answer : "Castiel dragged him out of Hell"
+    correct_answer : "Castiel dragged him out of Hell",
+    correct_img : "assets/images/Lucifer.jpg"
     },
 
     {question : "What was Castiel's plan to become God?",
@@ -48,7 +52,8 @@ var questions = [
     choice_two : "To drink demon blood to make him all powerful",
     choice_three : "To absorb all the souls in Purgatory",
     choice_four : "To destract God and murder him while he was unseeing",
-    correct_answer : "To absorb all the souls in Purgatory"
+    correct_answer : "To absorb all the souls in Purgatory",
+    correct_img : "assets/images/Castiel.jpg"
     },
 
     {question : "Who is God's long lost sister?",
@@ -56,7 +61,8 @@ var questions = [
     choice_two : "The Darkness",
     choice_three : "Death",
     choice_four : "Ruby",
-    correct_answer : "The Darkness"
+    correct_answer : "The Darkness",
+    correct_img : "assets/images/Darkness.jpg"
     },
 
     {question : "What year was season 1 released?",
@@ -64,7 +70,8 @@ var questions = [
     choice_two : "2001",
     choice_three : "2005",
     choice_four : "2008",
-    correct_answer : "2005"
+    correct_answer : "2005",
+    correct_img : "assets/images/2005.jpg"
     },
 
     {question : "What year was season 1 released?",
@@ -72,7 +79,8 @@ var questions = [
     choice_two : "2001",
     choice_three : "2005",
     choice_four : "2008",
-    correct_answer : "2005"
+    correct_answer : "2005",
+    correct_img : "assets/images/John.jpg"
     },
 
     {question : "What year was season 1 released?",
@@ -80,7 +88,8 @@ var questions = [
     choice_two : "2001",
     choice_three : "2005",
     choice_four : "2008",
-    correct_answer : "2005"
+    correct_answer : "2005",
+    correct_img : "assets/images/John.jpg"
     },
 ]
 
@@ -97,12 +106,30 @@ $('#timer').text(timerThirty);
 
 // countdown function, clear when timer = 0
 function countDownThirty(){
-   timerThirty = timerThirty-1;
-   if (timerThirty < 10 && timerThirty > -1){
+   timerThirty = timerThirty - 1;
+   if (timerThirty < 10 && timerThirty >= 0){
        timerThirty = '0' + timerThirty;
    }
-   if (timerThirty == 0){
+   if (timerThirty == -1){
     timerThirty = 0;
+    clearInterval(countDownIntervalThirty);
+    countDownIntervalFive = setInterval(countDownFive, 1000);
+
+        $('#mainImage').attr('class', 'hideMe');
+        $('#questionHere').attr('class', 'hideMe');
+        $('#choice_one').attr('class', 'hideMe');
+        $('#choice_two').attr('class', 'hideMe');
+        $('#choice_three').attr('class', 'hideMe');
+        $('#choice_four').attr('class', 'hideMe');
+
+        $('#timerFive').attr('class', 'showMe');
+        $('#reveal').attr('class', 'showMe bigRedText');
+        $('#reveal').html("Time's up, idjit... The answer was:");
+        $('#reveal').append('<div class="answerText" id="answer">');
+        $('#answer').append(questions[q]['correct_answer']);
+        $('#answer').append('<br><img class="answerImg" src="'+questions[q]['correct_img']+'">');
+        q++;
+        incorrectAns++;
     }
    $('#timer').text(timerThirty);
 } 
@@ -159,6 +186,7 @@ function countDownFive(){
     
 $('.answerText').on('click', function(){
     var choice = $(this).text();
+    var totalScore = correctAns + incorrectAns;
     var correctChoice = questions[q]['correct_answer'];
     countDownIntervalFive = setInterval(countDownFive, 1000);
 
@@ -172,14 +200,14 @@ $('.answerText').on('click', function(){
         $('#choice_three').attr('class', 'hideMe');
         $('#choice_four').attr('class', 'hideMe');
 
-        $('#timerFive').attr('class', 'showMe');
         $('#reveal').attr('class', 'showMe bigRedText');
         $('#reveal').html("That's right! The correct answer is:<br>");
         $('#reveal').append('<div class="answerText" id="answer">');
         $('#answer').append(questions[q]['correct_answer']);
         $('#answer').append('<br><img class="answerImg" src="'+questions[q]['correct_img']+'">');
-        q++;
         correctAns++;
+        q++;
+
 
     }else {
         clearInterval(countDownIntervalThirty);
@@ -191,14 +219,49 @@ $('.answerText').on('click', function(){
         $('#choice_three').attr('class', 'hideMe');
         $('#choice_four').attr('class', 'hideMe');
 
-        $('#timerFive').attr('class', 'showMe');
         $('#reveal').attr('class', 'showMe bigRedText');
         $('#reveal').html("That's wrong, dude... The answer was:");
         $('#reveal').append('<div class="answerText" id="answer">');
         $('#answer').append(questions[q]['correct_answer']);
         $('#answer').append('<br><img class="answerImg" src="'+questions[q]['correct_img']+'">');
-        q++;
         incorrectAns++;
+        q++;
+    }
+    if (questions[q] == undefined){
+        clearInterval(countDownIntervalThirty);
+        clearInterval(countDownIntervalFive);
+
+        $('#questionHere').attr('class', 'hideMe');
+        $('#choice_one').attr('class', 'hideMe');
+        $('#choice_two').attr('class', 'hideMe');
+        $('#choice_three').attr('class', 'hideMe');
+        $('#choice_four').attr('class', 'hideMe');
+
+        $('#reveal').attr('class', 'showMe bigRedText');
+        $('#reveal').html("How'd ya do?");
+        $('#reveal').append('<div class="answerText" id="total">');
+        $('#total').append('Total correct: ' + correctAns + '<br>');
+        $('#total').append('Total incorrect: ' + incorrectAns + '<br>');
+
+        var button = $('<button>');
+        button.html('<a href="">Try again?</a>');
+
+        // could not make this work, but this was my intention
+
+        // $('button').on('click', function(){
+        //     q=0;
+        //     correctAns = 0;
+        //     incorrectAns = 0;
+        //     countDownIntervalThirty = setInterval(countDownThirty, 1000);
+
+        //     $('#questionHere').text(questions[q]['question']);
+        
+        //     $('#choice_one').text(questions[q]['choice_one']);
+        //     $('#choice_two').text(questions[q]['choice_two']);
+        //     $('#choice_three').text(questions[q]['choice_three']);
+        //     $('#choice_four').text(questions[q]['choice_four']);
+        // });
+        $('#total').append(button);        
     }
 });
 
