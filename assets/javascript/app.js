@@ -87,6 +87,7 @@ var questions = [
 // global beginning variables
 var q = 0;
 var countDownInterval;
+var countDownIntervalTwo;
 var correctAns = 0;
 var incorrectAns = 0;
 
@@ -105,41 +106,52 @@ $('#start').on('click', function(){
 
 });
 
-
  // set timer to 30 seconds and adds to page
-var timerThirty = 30;
-$('#timer').text(timerThirty);
-
+ var timerThirty = 30;
+ $('#timer').text(timerThirty);
+ 
+ // countdown function, clear when timer = 0
+ function countDown(){
+    timerThirty = timerThirty-1;
+    if (timerThirty < 10){
+        timerThirty = '0' + timerThirty;
+    }
+    $('#timer').text(timerThirty);
+} 
 // set timer two (between questions) to 10 seconds for later use
 var timerTen = 10;
+function countDownTwo(){
+    timerTen = timerTen - 1;
 
-// countdown function, clear when timer = 0
-function countDown(){
-   timerThirty = timerThirty-1;
-   if (timerThirty < 10){
-       timerThirty = '0' + timerThirty;
-   }
-   $('#timer').text(timerThirty);
+    if (timerTen < 1){
+    clearInterval(countDownIntervalTwo);
+    
+    $('#reveal').attr('class', 'hideMe');
 
-    if (timerThirty < 1){
-    clearInterval(countDownInterval);
-    $('#questionHere').attr('class', 'hideMe');
+    $('#questionHere').text(questions[q]['question']);
 
-    $('#choice_one').attr('class', 'hideMe');
-    $('#choice_two').attr('class', 'hideMe');
-    $('#choice_three').attr('class', 'hideMe');
-    $('#choice_four').attr('class', 'hideMe');
+    $('#choice_one').text(questions[q]['choice_one']);
+    $('#choice_two').text(questions[q]['choice_two']);
+    $('#choice_three').text(questions[q]['choice_three']);
+    $('#choice_four').text(questions[q]['choice_four']);
 
-    $('#reveal').attr('class', '.showMe bigRedText');
-    $('#reveal').html("Time's up! The correct answer was:<br>");
-    $('#reveal').append('<div class="answerText" id="answer">');
-    $('#answer').append(questions[q]['correct_answer']);
-    $('#answer').append('<br><img class="answerImg" src="'+questions[q]['correct_img']+'">');
+    $('#questionHere').attr('class', 'showMe');
+
+    $('#choice_one').attr('class', 'showMe');
+    $('#choice_two').attr('class', 'showMe');
+    $('#choice_three').attr('class', 'showMe');
+    $('#choice_four').attr('class', 'showMe');
+
+
  }
 }
+   
+    
 $(document).on('click', '.answerText', function(){
     var choice = $(this).text();
     var correctChoice = questions[q]['correct_answer'];
+    countDownIntervalTwo = setInterval(countDownTwo, 1000);
+
     if (choice == correctChoice){
         clearInterval(countDownInterval);
         
@@ -160,7 +172,7 @@ $(document).on('click', '.answerText', function(){
 
     }else {
         clearInterval(countDownInterval);
-        countDownInterval = setInterval(countDown, 1000);
+
         $('#mainImage').attr('class', 'hideMe');
         $('#questionHere').attr('class', 'hideMe');
         $('#choice_one').attr('class', 'hideMe');
@@ -176,7 +188,13 @@ $(document).on('click', '.answerText', function(){
         q++;
         incorrectAns++;
     }
-})
+});
+
+
+
+
+
+
 
 
 
