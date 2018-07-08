@@ -1,4 +1,3 @@
-
 // list of questions and answers
 var questions = [
     {question : "What is Sam and Dean's Mom's name?",
@@ -16,7 +15,7 @@ var questions = [
     choice_two : "'65 Ford Mustang",
     choice_three : "'69 Pontiac Firebird",
     choice_four : "'68 Chevvy Chevelle",
-    correct_answer : "'67 Chevvy Impala",
+    correct_answer : "'67 Impala",
     correct_img : "assets/images/Impala.jpg"
     },
 
@@ -107,7 +106,6 @@ $('#timer').text(timerThirty);
 // countdown function, clear when timer = 0
 function countDownThirty(){
     $('#timer').show();
-    $('#timerText').show();
     timerThirty = timerThirty - 1;
    if (timerThirty < 10 && timerThirty >= 0){
        timerThirty = '0' + timerThirty;
@@ -115,7 +113,6 @@ function countDownThirty(){
    if (timerThirty == -1){
     timerThirty = 0;
     $('#timer').hide();
-    $('#timerText').hide();
     clearInterval(countDownIntervalThirty);
     countDownIntervalFive = setInterval(countDownFive, 1000);
 
@@ -164,11 +161,10 @@ function countDownFive(){
     clearInterval(countDownIntervalThirty);
 
     timerFive = 5;
-    timerThirty = 31;
-    
-    $('#timer').text(timerThirty);
+    timerThirty = 30;
+
     countDownIntervalThirty = setInterval(countDownThirty, 1000);
-   
+    $('#timer').text(timerThirty);
     
     $('#reveal').attr('class', 'hideMe');
 
@@ -198,8 +194,6 @@ $('.answerText').on('click', function(){
     countDownIntervalFive = setInterval(countDownFive, 1000);
 
     if (choice == correctChoice){
-        $('#timer').hide();
-        $('#timerText').hide();
         clearInterval(countDownIntervalThirty);
         
         $('#mainImage').attr('class', 'hideMe');
@@ -219,8 +213,7 @@ $('.answerText').on('click', function(){
 
 
     }else {
-        $('#timer').hide();
-        $('#timerText').hide();
+        $('#timer').show();
         clearInterval(countDownIntervalThirty);
 
         $('#mainImage').attr('class', 'hideMe');
@@ -239,12 +232,9 @@ $('.answerText').on('click', function(){
         q++;
     }
     if (questions[q] == undefined){
-        $('#timer').hide();
-        $('#timerText').hide();
         clearInterval(countDownIntervalThirty);
         clearInterval(countDownIntervalFive);
         timerThirty = 0;
-        timerFive = 1;
 
         $('#questionHere').attr('class', 'hideMe');
         $('#choice_one').attr('class', 'hideMe');
@@ -279,17 +269,4 @@ $('.answerText').on('click', function(){
         $('#total').append(button);        
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
